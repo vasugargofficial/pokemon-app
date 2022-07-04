@@ -46,20 +46,22 @@ const App = observer((props: IAppProps) => {
                     <div className='poke-container p-5'>
                         <InfiniteScroll
                             next={store.setPokemonDataList}
+                            style={{overflowX: 'hidden'}}
                             hasMore={true}
                             loader={''}
-                            dataLength={store.pokemonList.length}>
+                            dataLength={store.pokemonList.length}
+                        >
                             <Row>
                                 {store.pokemonList.map((pokemon, index) => {
                                     const details = store?.pokemonDetailsList[pokemon.name];
                                     const {color, type} = getBackgroundDetails(details);
 
-                                    return <Col key={pokemon.name}>
+                                    return <Col md={3} key={pokemon.name}>
                                         <div style={{backgroundColor: color}} className={'pokemon'}>
                                                 <div className={'img-container'}>
                                                     <img
                                                         src={details?.sprites?.other?.dream_world?.front_default}
-                                                        alt={'Loading...'}
+                                                        alt={''}
                                                     />
                                                 </div>
                                                 <div className={'mt-2'}>
@@ -76,6 +78,9 @@ const App = observer((props: IAppProps) => {
                                             </div>
                                     </Col>
                                 })}
+                                {!store.isLoading && !store.pokemonList.length && <h5>
+                                    No Pokemon found
+                                </h5>}
                             </Row>
                         </InfiniteScroll>
                     </div>

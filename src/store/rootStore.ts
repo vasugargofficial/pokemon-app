@@ -10,6 +10,7 @@ export class RootStore {
     pokemonDetailsList: any = {};
     search: string = '';
     apiClient = new ApiClient();
+    isLoading: boolean = false;
 
     constructor() {
         makeAutoObservable(this);
@@ -21,18 +22,20 @@ export class RootStore {
     }
 
     setPokemonDataList = async () => {
+        this.isLoading = true;
         try {
             const data = await this.apiClient.get(this.next);
             data.results.forEach(async (pokemon: any) => {
                 this.pokemonDetailsList[pokemon.name] = await this.getPokemonDetail(pokemon.url);
             });
-            this.allPokemonData = [...this.pokemonList, ...data.results];
+            this.allPokemonData = [...this.allPokemonData, ...data.results];
             this.pokemonList = _.cloneDeep(this.allPokemonData);
             this.filterResults();
             this.next = data.next;
         } catch (e) {
 
         }
+        this.isLoading = false;
     }
 
     getPokemonDetail = async (url: string) => {
@@ -44,6 +47,6 @@ export class RootStore {
     }
 
     filterResults = () => {
-        this.pokemonList = this.allPokemonData.filter(pokemon => pokemon.name.includes(this.search));
+        this.pokemonList = this.allPokemonData.filter(pokemon => pokemon.name.startsWith(this.search));
     }
 }

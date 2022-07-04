@@ -10,6 +10,7 @@
     display: flex;
     flex-grow: 1;
     flex-direction: column;
+    background: linear-gradient(to right, #D4D3DD, #90eab3, #ee815d);
 }
 
 .header {
@@ -25,7 +26,6 @@
 
 .content-main {
     display: flex;
-    background: linear-gradient(to right, #D4D3DD, #90eab3, #ee815d);
 }
 
 .poke-container {

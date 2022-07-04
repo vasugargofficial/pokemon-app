@@ -1,0 +1,79 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+.App-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.layout {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.header {
+    min-height: 40px;
+    padding: 10px;
+    color: black;
+    position: fixed!important;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.content-main {
+    display: flex;
+    background: linear-gradient(to right, #D4D3DD, #90eab3, #ee815d);
+}
+
+.poke-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+.pokemon {
+    border-radius: 20px;
+    box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.pokemon .img-container {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+}
+
+.pokemon .img-container img {
+    max-width: 80%;
+    max-height: 80%;
+}
+
+.pokemon .img-container img {
+    margin-top: 20px;
+    max-width: 90%;
+}
+
+.pokemon .number {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    font-size: 0.8em;
+    padding: 5px 10px;
+    font-weight: bold;
+}
+
+.pokemon .name {
+    margin: 15px 0 7px;
+    letter-spacing: 1px;
+    font-weight: bold;
+}

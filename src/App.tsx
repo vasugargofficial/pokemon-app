@@ -56,7 +56,7 @@ const App = observer((props: IAppProps) => {
                                     const details = store?.pokemonDetailsList[pokemon.name];
                                     const {color, type} = getBackgroundDetails(details);
 
-                                    return <Col md={3} key={pokemon.name}>
+                                    return <Col md={"auto"} key={pokemon.name}>
                                         <div style={{backgroundColor: color}} className={'pokemon'}>
                                                 <div className={'img-container'}>
                                                     <img
